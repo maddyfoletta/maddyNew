@@ -1,0 +1,40 @@
+.logBed{
+    text-align: center;
+    margin: 10%;
+    color: rgb(89, 89, 255);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.toolbar{
+    color: rgb(89, 89, 255);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.logButton{
+    --background: rgb(89, 89, 255);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(5, auto); /* 5 rows with automatic height */
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 10px; /* Gap between grid items */
+  }
+  
+  .logBed, .logButton {
+    grid-row: auto; /* Default behavior for these elements */
+  }
+  
+  .centered-item, app-date1, app-date2 {
+    grid-row: auto; /* Default behavior for these elements */
+    justify-self: center; /* Center horizontally */
+  }
+  
+  .centered-container {
+    grid-row: auto; /* Default behavior for this element */
+    justify-self: center; /* Center horizontally */
+  }
+  
+  
