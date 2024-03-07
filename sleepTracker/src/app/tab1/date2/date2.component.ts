@@ -12,7 +12,7 @@ export class Date2Component  implements OnInit {
   onDateChange2(event: CustomEvent) {
     const selectedDateTime = event.detail.value;
     this.date2Selected.emit(selectedDateTime);
-    console.log(selectedDateTime);
+   // console.log(selectedDateTime);
   }
 
   constructor() { }

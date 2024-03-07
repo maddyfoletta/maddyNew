@@ -14,7 +14,7 @@ export class Date1Component implements OnInit {
   onDateChange1(event: CustomEvent) {
     const selectedDateTime = event.detail.value;
     this.date1Selected.emit(selectedDateTime);
-    console.log(selectedDateTime);
+   // console.log(selectedDateTime);
   }
 
   ngOnInit(){
