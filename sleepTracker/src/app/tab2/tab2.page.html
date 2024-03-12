@@ -1,7 +1,14 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Sleepiness Log
+    <ion-title class="toolbar" size="large">
+     <strong>Sleepiness Level </strong> 
+     <ion-icon name="bar-chart-outline"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +16,40 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Sleepiness Log</ion-title>
+      <ion-title class="toolbar" size="large"><strong>Sleepiness Level </strong> 
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-title>
+      
     </ion-toolbar>
   </ion-header>
 
-  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
+  <div class="grid-container">
+    <div>
+      <h2>What day do you want to log your sleepiness level for?</h2>
+    </div>
+
+    <ion-item class="centered-item">
+      <app-month-day (month)="onDateSelected($event)"></app-month-day>
+    </ion-item>
+
+    <div>
+      <h2>How would you rate your sleepiness today?</h2>
+    </div>
+
+    <ion-item>
+      <app-sleepy-level (levelS)="getSL($event)"></app-sleepy-level>
+    </ion-item>
+    
+    <div class="centered-container">
+      <ion-button size="large" class="logButton" (click)="logLevel()">
+        Log Level
+      </ion-button>
+    </div>
+
+
+
+
+
+  </div>
+
 </ion-content>

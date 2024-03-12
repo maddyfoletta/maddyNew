@@ -1,0 +1,11 @@
+<ion-button class="logButton" size="medium"expand="block" (click)="openCalendar()">Select Date</ion-button>
+  <ion-datetime
+    *ngIf="showCalendar"
+    presentation="date"
+    [(ngModel)]="selectedDate"
+    (ionCancel)="closeCalendar()"
+    (ionChange)="onMonthChange($event)">
+  </ion-datetime>
+
+<!-- <ion-datetime (ionChange)="(onMonthChange($event))" presentation="month-date"></ion-datetime> -->
+
