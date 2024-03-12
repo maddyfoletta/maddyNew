@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FirebaseApp } from 'firebase/app';
 import { FirebaseService } from '../services/firebase.service';
+import { TimeService } from '../services/time.service';
 
 @Component({
   selector: 'app-tab2',
@@ -20,9 +20,12 @@ export class Tab2Page {
     this.level = selectedLevel;
   }
 
-  constructor(private firebase: FirebaseService) {}
+  constructor(private firebase: FirebaseService,
+    private timeS: TimeService) {}
 
   logLevel(){
+    const newD = this.timeS.parseId(this.selectedDate);
+    this.firebase.writeLevelToDate(newD, this.level);
     console.log("works");
     console.log("ONE: " + this.selectedDate);
     console.log("TWO: " + this.level);

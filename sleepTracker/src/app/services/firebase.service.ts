@@ -69,4 +69,19 @@ export class FirebaseService {
       console.error('Error writing times:', error);
     }
   }
+
+  async writeLevelToDate(id: string, level: string) {
+    try {
+      const parentNode = `sleepLogs/${id}`;
+      const newData = {
+        'sleepLevel': level
+      };
+      const parentNodeRef = ref(this.db, parentNode);
+  
+      await update(parentNodeRef, newData);
+      console.log('Node added successfully to', parentNode);
+    } catch (error) {
+      console.error('Error adding node:', error);
+    }
+  }
 }

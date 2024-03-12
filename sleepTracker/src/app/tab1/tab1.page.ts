@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-import { nanoid } from 'nanoid';
 import { TimeService } from '../services/time.service';
 
 @Component({
