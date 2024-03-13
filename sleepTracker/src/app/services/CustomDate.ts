@@ -1,5 +1,9 @@
-class CustomDate {
+export class CustomDate {
     private date: Date;
+    private months: string[] = [
+      'January', 'February', 'March', 'April', 'May', 'June', 'July',
+      'August', 'September', 'October', 'November', 'December'
+    ];
   
     constructor(dateString: string) {
       this.date = new Date(dateString);
@@ -10,14 +14,13 @@ class CustomDate {
       const minutes = this.date.getMinutes().toString().padStart(2, '0');
       return `${hours}:${minutes}`;
     }
-  
-    parseMonth(): string {
-      const months = [
-        'January', 'February', 'March', 'April', 'May', 'June', 'July',
-        'August', 'September', 'October', 'November', 'December'
-      ];
-      const monthIndex = this.date.getMonth();
-      return months[monthIndex];
+
+    getTheDay(): string{
+      const day = this.date.getDate();
+      const month = this.date.getMonth();
+
+      return `${this.months[month]} ${day}, 2024`;
+      
     }
   
     parseDate(): number {

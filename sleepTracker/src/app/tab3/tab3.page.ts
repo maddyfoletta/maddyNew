@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
+
 
 @Component({
   selector: 'app-tab3',
@@ -7,8 +9,23 @@ import { Component } from '@angular/core';
 })
 
 //pickers
-export class Tab3Page {
+export class Tab3Page implements OnInit{
+  logs: any[] | undefined;
+  constructor(private firebase: FirebaseService) {}
 
-  constructor() {}
+  ngOnInit(){
+    this.fetchLogsFromFirebase();
+  }
 
+  fetchLogsFromFirebase() {
+    const path = '/sleepLogs'; // Specify your Firebase path here
+    this.firebase.fetchLogs(path)
+      .then((logs) => {
+        this.logs = logs;
+        console.log(logs);
+      })
+      .catch((error) => {
+        console.error('Error fetching logs:', error);
+      });
+    }
 }

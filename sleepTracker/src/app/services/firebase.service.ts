@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, set, get, child, update, remove } from 'firebase/database';
+import { getDatabase, ref, set, get, child, update, remove, onValue } from 'firebase/database';
+import { CustomDate } from './CustomDate';
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -57,7 +58,7 @@ export class FirebaseService {
       const path = `sleepLogs/${id}`;
       const data = {
         start: startTime,
-        end: endTime
+       end: endTime
       };
       console.log("made it here");
 
@@ -84,4 +85,26 @@ export class FirebaseService {
       console.error('Error adding node:', error);
     }
   }
+
+  fetchLogs(path: string): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      const db = getDatabase();
+      const logsRef = ref(db, path);
+
+      onValue(logsRef, (snapshot) => {
+        const data = snapshot.val();
+        const logs = [];
+        for (const key in data) {
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            logs.push(data[key]);
+          }
+        }
+        resolve(logs);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
+
 }
