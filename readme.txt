@@ -59,14 +59,17 @@ There is a clear view of the date and how many hours of sleep they got.
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
 
-I chose backing up logged data. I used firebase to log my data.
+I chose backing up logged data. I used firebase to log and store my data.
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
 
-
+I did not use a native device resource.
 
 13. If you backed up logged data, where does it back up to?
 
+The data is backed up into a firebase realtime database.
 
 14. How does your app implement or follow principles of good mobile design?
 
+The app maintains a set color scheme with intuitive components for user input with little confusion.
+This app also allows the user to delete a log if they entered info wrong and update information if needed.
