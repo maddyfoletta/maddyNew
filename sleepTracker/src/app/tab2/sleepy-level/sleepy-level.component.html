@@ -1,6 +1,0 @@
-<ion-radio-group (ionChange)="onSelectChange($event)" value={{feeling[0]}}>
-    <ion-item *ngFor="let feel of feeling">
-        <ion-radio justify="start" labelPlacement="start" [value]="feel">{{feel | slice:0:40}}</ion-radio>
-    </ion-item>
-</ion-radio-group>
-
